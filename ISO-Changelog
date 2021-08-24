@@ -1,1 +1,45 @@
+````````````````
+> Hanh Linux release 1.2.1 (small update for Hanh Linux 1.2)
+- Installed tzdata
+- Reduce ISO size.
+You should use this version.
 
+> Hanh Linux release 1.2 (include all 1.1 releases changelog)
+Boot progress updates
+- Fixed append isolabel variable error with initramfs
+System updates
+- Restored neofetch. Now L is a replacement of neofetch that it can be installed manually. 
+- Fixed hanhinstall mount /var to the installed system. 
+- /etc/resolv.conf by default will have nameserver 8.8.8.8 inside it for faster installation (in dropping chroot). It will be overwritten at the next boot by dhcpcd. 
+- pacman disabled signature checking and supported archlinux-mirrorlist by default. Also, all of the multilib repositories are removed from /etc/pacman.conf. 
+- Updated some core packages. 
+
+> Hanh Linux pre-release 1.1.2
+- Fix the installer mount to /var in chroot progress. 
+- Install dosfstools for UEFI instead of manually install it in the installation. 
+- Do a stripping to save image size.
+
+> Hanh Linux pre-release 1.1.1 
+Call it a release, but it is a small update with:
+- isolabel patches on initramfs for LiveCD
+- Updated kernel to 5-13.12-artix1-1.
+
+
+> Hanh Linux 1.1
+Boot updates
+- UEFI boot supports with GRUB 
+- Support dd (Linux), Rufus (both iso and dd) mode, WinSetupFromUSB (multiboot). Some other USB boot creation tools aren't tested and may need modify in grub.cfg/syslinux.cfg. 
+- Added some other variables will support booting progress. These variable must be manually added to the grub.cfg/syslinux.cfg. 
+1. isolabel: supports linking the other device label to default device for mounting filesystem
+2. isodev: Like isolabel, but uses exactly partition instead ( /dev/sdXy)
+3. isouuid: Like isolabel, but uses exactly UUID
+Boot progress updates
+- Fixed initramfs that will not detect root device
+- dmsetup is added to initramfs
+System updates
+- vim is replaced with vim-minimal (Hanh Linux vim package forked from Debian), Added L (by TCH69) as a replacement for neofetch
+- Installer (hanh-installer) supports 
+1. Dropping chroot shell for some actions. 
+2. Custom GRUB command install (useful for separate boot partition), by default will use: grub-install --target i386-pc <disk>
+- Packages upgrade, with bug fixes.
+``````````````
